@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: namespaces
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  options    :text
+#  uuid       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  name: MyString
+  options: MyText
+  uuid: MyString
+
+two:
+  name: MyString
+  options: MyText
+  uuid: MyString
