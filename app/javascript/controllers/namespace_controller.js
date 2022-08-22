@@ -6,7 +6,7 @@ export default class extends Controller {
   connect() {
     console.log(["controller connected", this])
     this.cable = createConsumer()
-    this.cable.subscriptions.create({ channel: "NamespaceChannel", namespace: this.element.dataset.name }, {
+    this.cable.subscriptions.create({ channel: "NamespaceChannel", uuid: this.element.dataset.uuid }, {
       connected() {
         console.log(["connected", this])
       },

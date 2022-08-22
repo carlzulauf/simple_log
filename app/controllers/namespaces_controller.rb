@@ -3,7 +3,7 @@ class NamespacesController < ApplicationController
   end
 
   def show
-    @namespace = Namespace.find_by(name: params[:id])
+    @namespace = Namespace.find_by!(uuid: params[:id])
   end
 
   def create

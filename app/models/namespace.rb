@@ -14,9 +14,19 @@ class Namespace < ApplicationRecord
 
   scope :recent, -> { order(updated_at: :desc) }
 
-  validates :name, presence: true
+  before_save :ensure_uuid
 
   def to_param
-    name
+    uuid
+  end
+
+  def display_name
+    name.presence || "(untitled namespace)"
+  end
+
+  private
+
+  def ensure_uuid
+    self.uuid ||= SecureRandom.uuid
   end
 end
