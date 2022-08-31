@@ -21,4 +21,15 @@
 #
 class LogEntry < ApplicationRecord
   belongs_to :namespace
+
+  before_save :ensure_uuid
+
+  def as_shareable_json
+    as_json.without("id")
+  end
+  private
+
+  def ensure_uuid
+    self.uuid ||= SecureRandom.uuid
+  end
 end
