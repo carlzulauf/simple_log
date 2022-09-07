@@ -11,6 +11,19 @@
   </head>
 
   <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="container">
+        <div class="navbar-brand">
+          <%= link_to "Simple Log", root_url, class: "navbar-item is-size-2" %>
+          <div class="sub-nav mt-2">
+
+            <div class="breadcrumb mt-5 pl-4">
+              <%= content_for(:nav_breadcrumb) || render("default_breadcrumb") %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>

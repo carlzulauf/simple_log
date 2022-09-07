@@ -1,14 +1,20 @@
-<div data-controller="namespaces">
-  <h1>Namespaces</h1>
-  <h2>Create Namespace</h2>
-  <%= form_for( Namespace.new , remote: true) do |f| %>
-    <p>
-      <%= f.text_field :name %>
-      <%= f.submit %>
-    </p>
-  <% end %>
-  <h2>Recent Namespaces</h2>
-  <%- Namespace.recent.limit(10).each do |namespace| %>
-    <p><%= link_to namespace.name, namespace %></p>
-  <%- end %>
+<div class="section" data-controller="namespaces">
+  <nav class="card">
+    <%# <p class="panel-heading">
+      Create Namespace
+    </p> %>
+    <div class="card-content">
+      <%= form_for(Namespace.new, html: { class: "container" }) do |f| %>
+
+        <div class="field is-grouped">
+          <p class="control is-expanded">
+            <%= f.text_field :name, class: "input has-text-light has-background-dark", placeholder: "Name (optional)" %>
+          </p>
+          <p class="control">
+            <%= f.submit class: "button is-info is-outlined" %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </nav>
 </div>
