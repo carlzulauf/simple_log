@@ -21,7 +21,7 @@ class Namespace < ApplicationRecord
   end
 
   def display_name
-    name.presence || "(untitled namespace)"
+    name.presence || uuid
   end
 
   private

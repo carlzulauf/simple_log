@@ -1,5 +1,6 @@
 class NamespacesController < ApplicationController
   def index
+    @recent = Namespace.all.reverse_order.limit(10)
   end
 
   def show
