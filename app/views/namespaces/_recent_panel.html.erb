@@ -1,0 +1,9 @@
+<div class="panel">
+  <div class="panel-heading">
+    Recent Namespaces
+  </div>
+
+  <% namespaces.each do |namespace| %>
+    <%= link_to namespace.display_name, namespace, class: "panel-block" %>
+  <% end %>
+</div>
