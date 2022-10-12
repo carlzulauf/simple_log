@@ -11,7 +11,10 @@
     "esbuild-plugin-vue3": "^0.3.0",
     "esbuild-sass-plugin": "^2.3.2",
     "sass": "^1.54.9",
-    "vue": "^3.2.39"
+    "vue": "^3.2.39",
+    "vue-json-tree": "^0.4.3"
   },
-  "scripts": {"build": "node build.mjs"}
+  "scripts": {
+    "build": "node build.mjs"
+  }
 }
