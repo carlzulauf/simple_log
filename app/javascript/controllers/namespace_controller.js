@@ -9,12 +9,12 @@ export default class extends Controller {
 
   connect() {
     window.currentLogEntries = reactive([])
-    console.log(window.currentLogEntries)
-    console.log(["controller connected", this.entriesTarget, this])
+    var logEntries = reactive([]);
 
-    this.app = createApp(LogEntries)
+    this.app = createApp(LogEntries, {
+      entries: logEntries
+    })
     this.app.mount("#log-entries")
-    // console.log(this.app, LogEntries)
 
     this.cable = createConsumer()
     this.cable.subscriptions.create({ channel: "NamespaceChannel", uuid: this.element.dataset.uuid }, {
@@ -22,7 +22,7 @@ export default class extends Controller {
         console.log(["connected", this])
       },
       received(data) {
-        data.forEach(entry => window.currentLogEntries.push(entry))
+        data.forEach(entry => logEntries.push(entry))
         console.log(["received", data, this])
       }
     })

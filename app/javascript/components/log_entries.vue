@@ -3,21 +3,19 @@
     <h2>Log Entries</h2>
     <ul>
       <li v-for="entry in entries" :key="entry.id">
-        <p>
-          <strong>{{ entry.uuid }}</strong>
-          {{ entry.content }}
-        </p>
+        <LogEntry :uuid="entry.uuid" :content="entry.content" />
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import LogEntry from "./log_entry.vue"
+
 export default {
+  components: { LogEntry },
   data() {
-    return {
-      entries: window.currentLogEntries
-    }
+    return { entries: this.$attrs.entries }
   }
 }
 </script>
